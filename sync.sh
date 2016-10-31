@@ -1,1 +1,3 @@
-rsync --stats  --remove-source-files --recursive --verbose  --append --progress  $1 $2
+#!/bin/bash
+RSYNC_PASSWORD=${1} rsync --exclude={'*.html','*.txt'}  --progress --recursive --append --checksum --append-verify rsync://user@${2}/pub/* ./
+
